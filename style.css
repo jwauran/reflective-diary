@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Roboto Slab', sans-serif;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
@@ -49,4 +49,75 @@ section:nth-child(even) {
 
 section:nth-child(odd) {
   background-color: #ffffff;
+}
+
+.typing-dots {
+  display: inline;
+  position: relative;
+  vertical-align: baseline;
+}
+
+.typing-dots::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: typewriter-dots 1.2s steps(3, end) infinite;
+}
+
+@keyframes typewriter-dots {
+  0% { content: "."; }
+  33% { content: ".."; }
+  66% { content: "..."; }
+  100% { content: "."; }
+}
+
+.arrow {
+  font-size: 3rem; 
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+  position: relative;
+  margin: 1em;
+}
+
+.nav-arrows {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.arrow.prev, .arrow.next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow.prev::before {
+  content: "";   
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid black;
+  width: 0;
+  height: 0;
+  transform: rotate(0deg);
+}
+
+.arrow.next::before {
+  content: "";  
+  border-top: 10px solid black;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  width: 0;
+  height: 0;
+  transform: rotate(0deg);
+}
+
+.arrow.prev:hover::before {
+  border-bottom-color: #007BFF;
+}
+
+.arrow.next:hover::before {
+  border-top-color: #007BFF;
 }
