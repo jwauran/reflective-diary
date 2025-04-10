@@ -11,13 +11,14 @@ body {
 }
 
 .slide {
-  height: 100vh;
-  padding: 4rem 2rem;
+  position: relative;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 100vh;
   align-items: center;
-  text-align: center;
+  text-align: left;
 }
 
 .slide-content {
@@ -120,4 +121,24 @@ section:nth-child(odd) {
 
 .arrow.next:hover::before {
   border-top-color: #007BFF;
+}
+
+.footer {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 1rem;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #007BFF;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #0056b3;
 }
