@@ -38,7 +38,68 @@ body {
   min-height: 400px;
   display: flex; 
   flex-direction: column; 
-  justify-content: space-between; 
+  justify-content: space-between;
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.slide-content > * {
+  animation: fadeSlideIn 0.6s ease-out forwards;
+  opacity: 0;
+  animation-delay: 0.2s;
+}
+
+.instruction {
+  font-style: italic;
+  align-self: center;
+  transition: opacity 2s ease 5s;
+  color: darkslategray;
+}
+
+.slide:first-child:hover .instruction {
+  opacity: 0.2;
+}
+
+.sticky-note {
+  width: 250px;
+  min-height: 250px;
+  background-color: #fef68a;
+  border: 1px solid #e6d64b;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 1rem;
+  padding: 1rem;
+  position: relative;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  margin-top: 14px;
+  margin-bottom: 14px;
+  overflow: visible;
+}
+
+.original,
+.updated {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.updated {
+  color: red;
+  font-weight: bold;
+  visibility: hidden; 
+}
+
+.sticky-note:hover .updated {
+  visibility: visible; 
+  transition: visibility 0.3s ease;
 }
 
 section:nth-child(even) {

@@ -8,20 +8,59 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
+  <script>
+    document.addEventListener('keydown', function (event) {
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      const threshold = window.innerHeight / 2;
+  
+      const currentIndex = slides.findIndex(slide => {
+        const rect = slide.getBoundingClientRect();
+        return rect.top <= threshold && rect.bottom >= threshold;
+      });
+  
+      if (event.key === 'ArrowDown') {
+        event.preventDefault();
+        const nextSlide = slides[currentIndex + 1];
+        if (nextSlide) {
+          nextSlide.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+  
+      if (event.key === 'ArrowUp') {
+        event.preventDefault();
+        const prevSlide = slides[currentIndex - 1];
+        if (prevSlide) {
+          prevSlide.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  </script>
+
   <section class="slide" id="slide1">
     <div class="slide-content">
       <h1>April 11, 2025</h1>
-      <p>Classes are officially over. It's strangely bittersweet to think that I'll never experience the nerve-wracking energy of the 4th floor video rooms in Henry Angus again<span class="typing-dots"></span></p>
+      <p>Classes are officially over. It's strangely bittersweet to think that I'll never experience the nerve-racking energy surrounding the 4th floor video rooms in Henry Angus again<span class="typing-dots"></span></p>
       <div class="nav-arrows">
         <span class="arrow next" onclick="goToSlide(2)"></span> 
+      </div>
+      <div class="instruction">
+        <p>Click the arrows or press ↑ / ↓ on your keyboard to navigate the page.</p>
       </div>
     </div>
   </section>
 
   <section class="slide" id="slide2">
     <div class="slide-content">
-      <!-- What I learned -->
-      <p>This course taught me that communication is less about speaking, and more about connecting. I came in thinking presentations were about slides and sounding smart. But I learned it’s really about intention, structure, and empathy. One moment that stuck with me was when we were encouraged to think about audience takeaways. That shift—from performance to impact—changed how I approached every presentation after that.</p>
+      <p>Looking back on my previous diary entries, I realize that I would hyperfixate when preparing for presentations. Ahead of my informative presentation, I focused on not speaking too quickly. After all, we spent a whole class on voice and pace, and by the end of it I could vividly picture Elizabeth showing us breathing exercises and pleading us to relax and slow down. I was definitely relaxed when delivering that presentation–so much so that I nearly put <i>myself</i> to sleep. I spoke too slowly and added too many pauses, which effectively annihilated my momentum. As they say, everything in moderation.</p>
+      <div class="sticky-note">
+        <p class="original">Note to self: Don’t speak too fast!</p>
+        <p class="updated">But also… don’t make your audience suffer.</p>
+      </div>
+      <div class="instruction">
+        <p>Hover your mouse over the sticky note.</p>
+      </div>
+      <br>
+      <p>In worrying too much about my speaking pace, I lost sight of what–and more importantly, <i>who</i>–truly mattered. I was speaking about the US TikTok ban, which people had told me was an interesting and relevant topic. Yet when I looked out into the audience, praying that someone would make eye contact with me, I was met with the tops of heads.</p>
       <div class="nav-arrows">
         <span class="arrow prev" onclick="goToSlide(1)"></span> 
         <span class="arrow next" onclick="goToSlide(3)"></span> 
